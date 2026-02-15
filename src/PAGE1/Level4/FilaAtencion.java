@@ -1,7 +1,6 @@
-package Level4;
+package PAGE1.Level4;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class FilaAtencion {

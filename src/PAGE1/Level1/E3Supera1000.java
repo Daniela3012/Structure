@@ -1,4 +1,4 @@
-package Level1;
+package PAGE1.Level1;
 
 public class E3Supera1000 {
     public static void main(String[] args) {

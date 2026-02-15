@@ -1,4 +1,4 @@
-package Level3.Carrito;
+package PAGE1.Level3.Carrito;
 
 public class Product {
     private String nameProduct;
