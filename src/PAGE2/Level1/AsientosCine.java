@@ -65,6 +65,7 @@ public class AsientosCine {
         if (asientos[buscarEnAsientos] == 1) {
             return false;
         } else {
+            asientos[buscarEnAsientos]=1;
             return true;
         }
     }
