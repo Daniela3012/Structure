@@ -4,7 +4,7 @@ import java.util.Queue;
 
 public class FilaAtencion {
     private Queue<Paciente> fila;
-    private static int totalDePaciente=0;
+    private int totalDePaciente=0;
 
     public FilaAtencion () {
         fila = new ArrayDeque<>();
@@ -13,6 +13,7 @@ public class FilaAtencion {
     public void agregarPacienteAFila(Paciente p) {
         fila.offer(p);
         totalDePaciente += 1;
+        p.setorderAssociete(totalDePaciente);
     }
 
     public Paciente atenderPacientePorOrden () {
@@ -20,7 +21,12 @@ public class FilaAtencion {
     }
 
     public void mostrarSiguientePaciente () {
-        System.out.println("El paciente "+fila.peek().getName()+" está en el orden "+fila.peek().getOrderAssociete());
+        Paciente siguiente = fila.peek();
+        if (siguiente == null) {
+            System.out.println("No hay mas clientes en espera");
+        } else {
+            System.out.println("El paciente "+siguiente.getName()+" está en el orden "+siguiente.getOrderAssociete());
+        }
     }
 
     public int cantidadDePacientesAtendidos () {
@@ -32,7 +38,7 @@ public class FilaAtencion {
     }
 
     public int getTotalDePaciente() {
-        return FilaAtencion.totalDePaciente;
+        return totalDePaciente;
     }
 
 }
