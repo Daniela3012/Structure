@@ -1,6 +1,7 @@
 package POO.Level1.Facturacion;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ public class Factura {
     public Factura(Date date, Cliente client) {
         this.date = date;
         this.client = client;
+        this.factura = new HashMap<>();
     }
 
     public Date getDate() {
@@ -22,17 +24,13 @@ public class Factura {
         return client;
     }
 
-    public Map<Producto, Integer> getFactura() {
-        return factura;
-    }
-
     public void addProduct (Producto product, Integer quantity) {
         factura.put(product, quantity);
     }
 
     public Double getTotalPrice () {
         if (factura.isEmpty()) {
-            return null;
+            return 0.0;
         }
         double totalPrice = 0;
         for (Map.Entry<Producto, Integer> entry : factura.entrySet()) {
