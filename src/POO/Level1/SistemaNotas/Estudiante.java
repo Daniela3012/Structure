@@ -38,4 +38,11 @@ public class Estudiante {
         return prom;
     }
 
+    public void mostrarCursosYNotas () {
+        System.out.println("Estdiante "+name+" tiene los siguientes cursos y notas");
+        for (Nota n : notas) {
+            System.out.println("Curso: "+n.getCourse().getName()+" - Nota: "+n.getValue());
+        }
+    }
+
 }
