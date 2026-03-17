@@ -16,6 +16,7 @@ public class Prestamo {
         this.usuario = usuario;
         this.libro = libro;
         this.libro.setEstado(EstadoDeLibro.PRESTADO);
+        this.estado = EstadoPrestamo.ACTIVO;
         this.fechaDeInicio = fechaDeInicio;
         this.fechaFin = fechaDeInicio.plusDays(7);
     }
@@ -49,18 +50,22 @@ public class Prestamo {
     }
 
     public void setFechaDeInicio(LocalDate fechaDeInicio) {
+        this.fechaFin = fechaDeInicio.plusDays(7);
         this.fechaDeInicio = fechaDeInicio;
     }
 
-    public void setFechaDeDevolucion(LocalDate fechaDeDevolucion) {
+
+    public void devolverLibro (LocalDate fechaDeDevolucion) {
         this.fechaDeDevolucion = fechaDeDevolucion;
+        setEstado(EstadoPrestamo.DESACTIVADO);
+        libro.setEstado(EstadoDeLibro.LIBRE);
     }
 
     public double calcularMulta (LocalDate fechaDeDevolucion) {
         double multa = 0;
         int diasRetrazo = 0;
-        setFechaDeDevolucion(fechaDeDevolucion);
-        diasRetrazo = (int) ChronoUnit.DAYS.between(fechaDeDevolucion, fechaFin);
+        this.fechaDeDevolucion = fechaDeDevolucion;
+        diasRetrazo = (int) ChronoUnit.DAYS.between(fechaFin, fechaDeDevolucion);
         if (diasRetrazo >0) {
            return multa=diasRetrazo*10;
         }
