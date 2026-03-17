@@ -26,6 +26,7 @@ public class PrestamoService {
         for (Prestamo p : prestamos) {
             if (p.getUsuario().equals(usuario) && p.getLibro().equals(libro) && p.getEstado().equals(EstadoPrestamo.ACTIVO)) {
                 multa = p.calcularMulta(fechaDeDevolucion);
+                p.devolverLibro(fechaDeDevolucion);
             }
         }
         return multa;
