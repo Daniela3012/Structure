@@ -10,6 +10,7 @@ public class PrestamoServices {
     public Reserva crearReserva (List<Reserva> reservas, Cliente cliente, Habitacion habitacion,LocalDate fechaDeReserva, int horas) {
         if (habitacion.disponibilidadHabitacion() && conteos.calcularResevarActivasCliente(reservas,cliente)<=2) {
             Reserva newReserva = new Reserva(cliente,habitacion,fechaDeReserva,horas);
+            reservas.add(newReserva);
             return newReserva;
         }
         return null;
@@ -19,7 +20,7 @@ public class PrestamoServices {
         for (Reserva r : reservas) {
             if (r.getCliente().equals(cliente) && r.getHabitacion().equals(habitacion)) {
                 if (fechaDeIngreso.isAfter(r.getFechaDeReserva()) || fechaDeIngreso.equals(r.getFechaDeReserva())) {
-                    habitacion.reservarHabitacion();
+                    habitacion.ocuparHabitacion();
                 }
             }
         }
