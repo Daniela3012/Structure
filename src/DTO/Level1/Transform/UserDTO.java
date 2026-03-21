@@ -10,4 +10,16 @@ public class UserDTO {
         this.email = email;
         this.roleName = roleName;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
 }
