@@ -1,6 +1,6 @@
 package POO.Level1.Biblioteca;
 
-import PAGE2.Level3.Biblioteca.Libro;
+import STRUCTURE.PAGE2.Level3.Biblioteca.Libro;
 
 import java.util.Date;
 
