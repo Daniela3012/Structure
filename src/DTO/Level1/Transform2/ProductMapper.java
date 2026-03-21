@@ -6,7 +6,7 @@ public class ProductMapper {
 
     public ProductDTO toDTO (Product product) {
         if (product == null) return null;
-        return new ProductDTO(product.getName(), product.getPrice(), )
+        return new ProductDTO(product.getName(), product.getPrice(), mapStatus(product.getStock()));
     }
 
     private String mapStatus (int stock) {
