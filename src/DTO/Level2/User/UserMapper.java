@@ -11,6 +11,7 @@ public class UserMapper {
         return new UserDTO(user.getName(), user.getEmail(), mapRoleName(user.getRole()));
     }
 
+
     private String mapRoleName (String role) {
         if (role == null) return "Desconocido";
         return switch (role) {

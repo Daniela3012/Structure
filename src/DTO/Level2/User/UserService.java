@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
-    UserRespository userRepo = new UserRespository();
+    private UserRespository userRepo = new UserRespository();
 
     public List<UserDTO> getAll () {
         List<User> users = userRepo.findAll();
         List<UserDTO> result = new ArrayList<>();
+        UserMapper mapper = new UserMapper();
 
         for (User u : users) {
-            result.add(new UserDTO(u.getName(),u.getEmail(),u.getRole()));
+            result.add(mapper.toDTO(u));
         }
 
         return result;
